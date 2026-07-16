@@ -14,15 +14,19 @@ public class Main {
         // Comparableによる並び替え
         testSort();
         
+        // Comparatorによる並び替え
+        testComparatorSort();
+        
         // cloneによるインスタンス複製
         testClone();
-        
     }
     
     /**
      * equals()の動作を確認
      */
     public static void testEquals() {
+        IO.println("===== equals()の動作を確認 =====");
+        
         Date date = new Date();
         
         // equalsをオーバーライドしていないBook
@@ -52,6 +56,8 @@ public class Main {
      * HashSetとequals/hashCodeの動作を確認
      */
     public static void testHashSet() {
+        IO.println("===== HashSetとequals/hashCodeの動作を確認 =====");
+        
         Date date = new Date();
         
         // hashCodeをオーバーライド
@@ -69,6 +75,8 @@ public class Main {
      * Comparableによる並び替えを確認
      */
     public static void testSort() {
+        IO.println("===== Comparableによる並び替えを確認 =====");
+        
         Date date = new Date();
         
         // 並び替え
@@ -103,9 +111,35 @@ public class Main {
     }
     
     /**
+     * Comparatorによる並び替えを確認
+     */
+    public static void testComparatorSort() {
+        Date date = new Date();
+        
+        IO.println("===== Comparatorによる並び替えを確認 =====");
+        
+        // Comparableインタフェースの実装
+        CorrectBook cBook = new CorrectBook("BananaBook", new Date(2026, 2, 3), "Comment");
+        CorrectBook cBook2 = new CorrectBook("AppleBook", new Date(2026, 1, 2), "Comment");
+        List<CorrectBook> sortCList = new ArrayList<>();
+        sortCList.add(cBook);
+        sortCList.add(cBook2);
+        
+        IO.println("Before sortCList:");
+        printList(sortCList);
+        
+        // 書名に並び変わる
+        Collections.sort(sortCList, new BookNameComparator());
+        IO.println("After sortCList:");
+        printList(sortCList);
+    }
+    
+    /**
      * cloneによるインスタンス複製を確認
      */
     public static void testClone() {
+        IO.println("===== cloneによるインスタンス複製を確認 =====");
+        
         // インスタンス複製の検証
         Book cloneBook = new Book("Title", new Date(2026, 2, 3), "Comment");
         Book cloneBook2 = cloneBook;
