@@ -19,6 +19,9 @@ public class Main {
         
         // cloneによるインスタンス複製
         testClone();
+
+        // レコード
+        testRecord();
     }
     
     /**
@@ -149,6 +152,24 @@ public class Main {
         CorrectBook cloneCBook = new CorrectBook("Title", new Date(2026, 2, 3), "Comment");
         CorrectBook cloneCBook2 = cloneCBook.clone();
         IO.println("isCorrectBookCloned: " + !(cloneCBook == cloneCBook2));
+    }
+
+    /**
+     * レコード
+     */
+    public static void testRecord() {
+        IO.println("===== レコード =====");
+        RecordBook rBook = new RecordBook("AppleBook", new Date(2026, 1, 2), "Apple");
+        RecordBook rBook2 = new RecordBook("BananaBook", new Date(2027, 3, 4), "Banana");
+        
+        try {
+            RecordBook rBook3 = new RecordBook("ChocolateBook", null, "Chocolate");
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+       
+        IO.println("rBook.title: " + rBook.title());
     }
     
     /**
