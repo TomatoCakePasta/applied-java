@@ -2,7 +2,7 @@ import java.util.*;
 import java.util.Date;
 import java.util.Objects;
 
-public class CorrectBook {
+public class CorrectBook implements Comparable<CorrectBook>, Cloneable {
     private String title;
     private Date publishDate;
     private String comment;
@@ -43,5 +43,20 @@ public class CorrectBook {
     @Override
     public int hashCode() {
         return Objects.hash(title, publishDate);
+    }
+
+    @Override
+    public int compareTo(CorrectBook obj) {
+        return publishDate.compareTo(obj.publishDate);
+    }
+
+    @Override
+    public CorrectBook clone() {
+        CorrectBook result = new CorrectBook();
+        result.title = title;
+        result.publishDate = publishDate;
+        result.comment = comment;
+        
+        return result;
     }
 }
