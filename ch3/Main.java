@@ -1,0 +1,11 @@
+public class Main {
+    public static void main(String[] args) {
+        Func1 func1 = (int x) -> { return (x % 2 == 1); };
+        Func2 func2 = (int point, String name) -> { return name + "さんは" + (point > 65 ? "合格" : "不合格"); };
+        
+        IO.println("isOdd(2): " + func1.isOdd(2));
+        IO.println("isOdd(1): " + func1.isOdd(1));
+        IO.println(func2.passCheck(65, "Sato"));
+        IO.println(func2.passCheck(66, "Kimura"));
+    }
+}
