@@ -7,5 +7,10 @@ public class Main {
         IO.println("isOdd(1): " + func1.isOdd(1));
         IO.println(func2.passCheck(65, "Sato"));
         IO.println(func2.passCheck(66, "Kimura"));
+
+        // 標準関数インタフェースに代入
+        IntFunction<Boolean> func3 = (int x) -> { return (x % 2 == 1); };
+        IO.println(func3.apply(2));
+        IO.println(func3.apply(1));
     }
 }
