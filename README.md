@@ -15,5 +15,5 @@
 % javac -d bin Main.java
 
 // Run
-% java Main
+% java -cp bin Main
 ```
