@@ -16,4 +16,7 @@
 
 // Run
 % java -cp bin Main
+
+// or
+% java -cp bin package_name.Main
 ```
